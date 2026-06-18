@@ -105,3 +105,74 @@ vals = [('Hrithik',2009,8.5),
 a = np.array(vals,dtype=dtype)
 print(np.sort(a, order='name'))
 print(np.sort(a, order='cgpa'))
+
+# Attributes of Numpy
+
+a = np.array([[1,2,3],[4,5,6]])
+print(a.shape) # returns the dimensions of array
+print(a.dtype)
+print(a.ndim) # return number of dimension
+
+
+# Matrix multiplication
+a = np.array([[1, 2], [3, 4]])
+b = np.array([[5, 6], [7, 8]])
+print(np.multiply(a,b))
+print(np.dot(a,b))
+print(a.ndim)
+
+a="finland"
+arr = np.fromiter(a, dtype='U2')
+print(arr)
+
+a = np.empty((4,3), dtype=np.int16)
+print(a)
+
+b = np.ones((4,3), dtype=np.int32)
+print(b)
+
+c = np.zeros((4,3), dtype=np.int32)
+print(c)
+
+# Attributes of ndarray
+
+a = np.array([[1,2,3],[4,5,6]])
+print(a.shape) # return dimension of array
+print(a.ndim) # return number of dimension
+print(a.dtype) #data types
+print(a.size) # total elements in array
+print(a.itemsize) # return size in bytes of each element.
+
+print('-----------------')
+# Multi dimensional indexing
+# index and slice each dimension in multi dimensional arrays
+
+a = np.array([[1,2,3],[4,5,6],[7,8,9]])
+
+#indexing
+print(a[2,2])
+#slicing
+print(a[::2,::2]) # firt row and last row, first col and third col of each row
+
+
+# Reshaping : change the shape of array while keeping all datas
+
+a = np.arange(0,10)
+print(a)
+r = a.reshape(2,5)
+print(r)
+r = a.reshape(5,2)
+print(r)
+
+# Flattening: convert multidimensional array into one dimension
+
+a = np.array([[1,2,3],[4,5,6]])
+f = a.flatten()
+print(f)
+
+a = np.array([[[1,2,3],[4,5,6]], [[10,20,30],[40,50,60]]])
+f = a.flatten()
+print(f)
+
+print(type(a))
+print(a.dtype)
