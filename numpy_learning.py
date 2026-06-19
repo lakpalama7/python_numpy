@@ -296,3 +296,5 @@ m = img.mean(axis=0)
 s = img.std(axis=0)
 res = (img-m)/s
 print(res)
+
+
