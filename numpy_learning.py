@@ -176,3 +176,123 @@ print(f)
 
 print(type(a))
 print(a.dtype)
+
+# creating arrays 
+
+# zeros array
+a = np.zeros((3,4))
+print(a)
+
+# ones array
+a= np.ones((2,3), dtype=int)
+print(a)
+
+# full array
+a = np.full((2,2),7)
+print(a)
+
+# random values
+# generate float values between 0 to 1
+a=np.random.rand(2,3)
+print(a)
+
+# generate int values
+a = np.random.randint(1,10, size=(3,3))
+print(a)
+
+# range value
+a = np.arange(0,10,2)
+print(a)
+
+# generate array with specified number size each element are evenly spaced with in range
+a = np.linspace(0,10,5)
+print(a)
+
+
+# Identity and diagonal matrics
+a=np.eye(3) # generate 3*3 matrics, with 1's in diagonal 
+print(a)
+
+a=np.diag([1,2,3]) # generate matrix with diagonal [1,2,3]
+print(a)
+
+# empty
+a = np.empty([3,], dtype=int)
+print(a)
+a = np.empty([2,2], dtype=int)
+print(a)
+
+
+# resize 
+arr = np.array([1,2,3,4,5,6])
+arr.resize((3,4), refcheck=False)
+print(arr)
+
+arr.resize((4,4), refcheck=False)
+print(arr)
+
+# stack
+a = np.array([1,2,3])
+b = np.array([4,5,6])
+res = np.stack((a,b), axis=0)
+print(res)
+res = np.stack((a,b), axis=1)
+print(res)
+
+m = np.array([[[1, 2], [3, 4]],
+              [[5, 6], [7, 8]]])
+
+n = np.array([[[10, 20], [30, 40]],
+              [[50, 60], [70, 80]]])
+
+print(np.stack((m,n), axis=0))
+print("----------")
+print(np.stack((m,n), axis=1))
+print("---------")
+print(np.stack((m,n), axis=2))
+print("-------")
+print(np.stack((m,n), axis=3))
+
+#split array
+
+arr = np.array([1, 2, 3, 4, 5, 6])
+res = np.array_split(arr,3)
+print(res)
+
+#split -- divides into sub array of equal size...
+a = np.arange(6)
+print(np.split(a,2))
+
+# it allows uneven split also
+a = np.arange(13)
+res = np.array_split(a, 5)
+print(res)
+
+#vsplit
+arr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]])
+res = np.vsplit(arr,2)
+print(res)
+#hspilt
+arr = np.array([[1, 2, 3,0], [4, 5, 6,0], [7, 8, 9,0], [10, 11, 12,0]])
+res = np.hsplit(arr,2)
+print(res)
+
+arr = np.arange(24).reshape((2, 3, 4))
+print(arr)
+
+#broadcasting in conditional
+
+a = np.array([12, 24, 35, 45, 60, 72])
+b = np.array(["Adult", "Minor"])
+res = np.where(a > 18, b[0], b[1])
+print(res)
+
+# Normalizing data
+img = np.array([ [100, 120, 130],
+                 [90, 110, 140],
+                 [80, 100, 120] ])
+
+m = img.mean(axis=0)
+s = img.std(axis=0)
+res = (img-m)/s
+print(res)
