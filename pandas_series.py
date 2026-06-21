@@ -82,3 +82,23 @@ print(s[[2,4,5]])
 s = pd.Series(range(0,5), index=['a','b','c','d','e'])
 print(s['e'])
 print(s[['c','a','e']])
+
+
+# Arithmetic Operations on Series
+s1 = pd.Series([1,2,3,4], index = ['a','b','c','d'])
+s2 = pd.Series([10,11,12,13], index=['a','b','c','d'])
+print(s1, "\n", s2)
+print(s1 + s2)
+
+#comparision
+s1 = pd.Series([10, 20, 30])
+s2 = pd.Series([10, 25, 30])
+
+print(s1==s2)
+
+# missing data in DataFrame
+
+df = pd.DataFrame({'A':[1,2,None], 'B':[4,None, 6]})
+df1 = pd.DataFrame({'A':[1,None,3], 'B':[None,5,6]})
+print(df,"\n",df1)
+print(df+df1)
