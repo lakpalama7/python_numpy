@@ -102,3 +102,21 @@ df = pd.DataFrame({'A':[1,2,None], 'B':[4,None, 6]})
 df1 = pd.DataFrame({'A':[1,None,3], 'B':[None,5,6]})
 print(df,"\n",df1)
 print(df+df1)
+
+
+# index attributes
+
+data = pd.Series([1,2,3,4,5], index=['a','b','c','d','e'])
+print(data.index)
+data.index = ['q','w','r','s','t']
+print(data)
+
+Date = ['1/1/2018', '2/1/2018', '3/1/2018', '4/1/2018']
+idx_name = ['Day 1', 'Day 2', 'Day 3', 'Day 4']
+
+d = pd.Series(data=Date, index=idx_name)
+print(d)
+
+# reset index
+d.reset_index(drop=True, inplace=True)
+print(d)
