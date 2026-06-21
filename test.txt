@@ -1,0 +1,5 @@
+Name,Degree,Score
+ram,mba,200
+sita,bba,230
+hari,mit,500
+gita,bbs,300

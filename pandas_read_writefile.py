@@ -1,4 +1,6 @@
 import pandas as pd
+import json
+import requests
 
 df = pd.read_csv('employee.csv')
 print(df.head(2))
@@ -58,3 +60,31 @@ print(data)
 
 data.to_csv('f.csv', columns=['Score'], index=False)
 print(pd.read_csv('f.csv'))
+
+# Json normalized  method
+data = {"One": {"0": 60, "1": 60, "2": 60, "3": 45, "4": 45, "5": 60},
+        "Two": {"0": 110, "1": 117, "2": 103, "3": 109, "4": 117, "5": 102}}
+
+jdata=json.dumps(data)
+print(jdata)
+
+df_norm = pd.json_normalize(json.loads(jdata))
+print(df_norm)
+
+url = 'https://jsonplaceholder.typicode.com/posts'
+response = requests.get(url)
+data = pd.json_normalize(response.json())
+print(data.head())
+print(data.columns)
+print(data['title'])
+
+# Handling text files
+
+data = pd.read_csv('test.txt', header=None)
+print(data)
+# set column
+data.columns = ['Name','Degree','Score']
+print(data)
+
+# write to file
+data.to_csv('test.txt', index=None)
