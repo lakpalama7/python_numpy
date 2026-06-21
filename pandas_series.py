@@ -52,3 +52,33 @@ print(s)
 
 s = pd.Series(range(10,20), index=[x for x in range(0,10)])
 print(s)
+
+print("--------------")
+# Accessing the First Element of Series
+data = np.array(['g', 'e', 'e', 'k', 's', 'f',
+                 'o', 'r', 'g', 'e', 'e', 'k', 's'])
+s = pd.Series(data)
+print(s[0])
+
+# first 5 elements
+print(s.head())
+
+# last 10 elments
+print(s.tail(10))
+print(s[-10:])
+
+# Access element using Label
+#Accessing a Single Element Using index Label
+
+data = np.array(['a','b','c','d','e'])
+s = pd.Series(data, index=[1,2,3,4,5])
+print(s[2])
+
+# multiple element
+print(s[[2,4,5]])
+
+# Access Multiple Elements by Providing Label of Index
+
+s = pd.Series(range(0,5), index=['a','b','c','d','e'])
+print(s['e'])
+print(s[['c','a','e']])
