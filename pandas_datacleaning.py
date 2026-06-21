@@ -92,3 +92,45 @@ print(df.dropna(axis=1))
 
 # drop rows with missing values 
 print(df.dropna(how='any'))
+
+# drop duplicates
+data = {
+    "Name": ["Alice", "Bob", "Alice", "David"],
+    "Age": [25, 30, 25, 40],
+    "City": ["NY", "LA", "NY", "Chicago"]
+}
+
+df = pd.DataFrame(data)
+print(df)
+
+print(df.drop_duplicates())
+
+# drop all duplicates
+print(df.drop_duplicates(keep=False))
+
+# change datatypes
+data = {'Name': ['John', 'Alice', 'Bob', 'Eve', 'Charlie'], 
+        'Age': [25, 30, 22, 35, 28], 
+        'Gender': ['Male', 'Female', 'Male', 'Female', 'Male'], 
+        'Salary': [50000, 55000, 40000, 70000, 48000]}
+
+df = pd.DataFrame(data)
+print(df.info())
+# convert age to float
+df['Age'] = df['Age'].astype(float)
+print(df.dtypes)
+df['Salary'] = df['Salary'].astype(float)
+print(df.dtypes)
+
+#Converting a Column to a DateTime Type
+df['Join Date'] = ['2021-01-01', '2020-05-22', '2022-03-15', '2021-07-30', '2020-11-11']
+print(df)
+print(df.dtypes)
+
+# convert 'join Date' to datetime
+df['Join Date'] = pd.to_datetime(df['Join Date'])
+print(df.dtypes)
+
+# convert multiple cols datatypes
+df = df.astype({'Age':int,'Salary':str})
+print(df.dtypes)
