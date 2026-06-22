@@ -92,3 +92,47 @@ print(const)
 
 df1['Avgage'] = df1['Age'].apply(lambda x: x/const)
 print(df1)
+
+# dataframe visualization
+
+df = pd.DataFrame([
+    [180, 110, 18.9, 1400],  
+    [360, 905, 23.4, 1800],  
+    [230, 230, 14.0, 1300],  
+    [600, 450, 13.5, 1500]
+], columns=['Col A', 'Col B', 'Col C', 'Col D'])
+
+# Normalization Techniques in Pandas
+# 1. Maximum absolute scaling
+df_scaled = df.copy()
+print(df_scaled)
+
+for column in df_scaled.columns:
+    df_scaled[column] = df_scaled[column] / df_scaled[column].abs().max()
+
+print(df_scaled)
+
+df_scaled.plot(kind='bar')
+plt.show()
+
+#2. min-max scaling
+scaled = df.copy()
+for col in scaled.columns:
+    scaled[col] = (scaled[col] - scaled[col].min()) / (scaled[col].max() - scaled[col].min())
+
+print(scaled)
+
+scaled.plot(kind='bar')
+plt.show()
+
+# z-score scaling
+
+z_scaled = df.copy()
+
+for col in z_scaled.columns:
+    z_scaled[col] = (z_scaled[col] - z_scaled[col].mean()) / z_scaled[col].std()
+
+print(z_scaled)
+z_scaled.plot(kind='bar')
+plt.show()
+
