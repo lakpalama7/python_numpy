@@ -134,3 +134,27 @@ print(df.dtypes)
 # convert multiple cols datatypes
 df = df.astype({'Age':int,'Salary':str})
 print(df.dtypes)
+
+# dropping null values
+
+df = pd.DataFrame({'FirstName': ['Vipul', 'Ashish', 'Milan'],
+                            "Gender": ["", "", ""],
+                            "Age": [0, 0, 0]})
+print(df)
+df['department']=np.nan
+print(df)
+df.dropna(axis=1, inplace=True)
+print(df)
+
+# replace empty string with null value
+df.replace(to_replace="", value=np.nan, inplace=True)
+print(df)
+df.dropna(axis=1,inplace=True)
+print(df)
+
+# replace zeros with null
+df.replace(to_replace=0, value=np.nan, inplace=True)
+print(df)
+
+df.dropna(axis=1, inplace=True)
+print(df)
