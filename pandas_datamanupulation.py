@@ -34,3 +34,32 @@ print(df[df['student'] == True])
 print("-------")
 print(df.sort_values(by='name'))
 print(df.sort_index())
+
+
+# grouping
+df = pd.read_csv("https://media.geeksforgeeks.org/wp-content/uploads/nba.csv")
+print(df.head(2))
+gf = df.groupby('Team')
+print(gf.first())
+
+# group by multiple columns
+gf = df.groupby(['Team','Position'])
+print(gf.first())
+
+# aggrigate function
+
+agg_data = df.groupby(['Team','Position']).agg(
+    total_salary = ('Salary','sum'),
+    avg_salary=('Salary','mean'),
+    count = ('Name','count')
+)
+print(agg_data)
+
+# transformation method
+print(df.head(2))
+df['rank in team'] = df.groupby('Team')['Salary'].transform(lambda x:x.rank(ascending=False))
+print(df)
+
+# filtering groups 
+fdata = df.groupby('Team').filter(lambda x: x['Salary'].mean() >=1000000)
+print(fdata)
