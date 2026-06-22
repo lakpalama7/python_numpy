@@ -63,3 +63,33 @@ print(df)
 # filtering groups 
 fdata = df.groupby('Team').filter(lambda x: x['Salary'].mean() >=1000000)
 print(fdata)
+
+
+# pandas join
+d = {'id': [1, 2, 10, 12], 
+     'val1': ['a', 'b', 'c', 'd']}
+
+df= pd.DataFrame(d)
+print(df)
+
+d = {'id': [1, 2, 9, 8],
+     'val1': ['p', 'q', 'r', 's']}
+df1 = pd.DataFrame(d)
+print(df1)
+
+# inner join
+print(df.merge(df1,on='id', how='inner'))
+print(pd.merge(df,df1, how='inner', on='id'))
+
+# left join
+print(pd.merge(df,df1, on='id', how='left'))
+
+# rifht join 
+print(pd.merge(df,df1, on='id', how='right'))
+
+#outer
+print(pd.merge(df,df1, on='id',how='outer'))
+
+# index join
+print(pd.merge(df,df1, left_index=True,right_index=True))
+
